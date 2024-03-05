@@ -1,33 +1,17 @@
-name: Automated API tests using Postman CLI multi
+name: Automated API tests using Postman CLI
 
-on:
-  push:
-    branches:
-      - main
-
-env:
-  BASE_URI: https://simple-books-api.glitch.me
+on: push
 
 jobs:
   automated-api-tests:
-    runs-on: ${{ matrix.os}}
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
       - name: Install Postman CLI
         run: |
-          if [[ "${{ runner.os }}" == "Windows" ]]; then
-            iwr "https://dl-cli.pstmn.io/install/win64.sh" -OutFile "install.sh"
-            ./install.sh
-          elif [[ "${{ runner.os }}" == "macOS" ]]; then
-            curl -o- "https://dl-cli.pstmn.io/install/mac64.sh" | sh
-          else
-            curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
-          fi
+          curl -o- "https://dl-cli.pstmn.io/install/osx_64.sh" | sh
       - name: Login to Postman CLI
         run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
       - name: Run API tests
         run: |
-          postman collection run "31080467-cda62753-cdd8-4bf8-911d-1bbf60e3bc41" -e "31080467-620f9418-ad96-47c6-b7fc-6ad83f35c305"
+          postman collection run "31080467-bb16c346-603e-41b3-8729-f23af7d0cdf2" -e "31080467-47a22cc7-57ce-448b-b27b-d5928a4b4013"
