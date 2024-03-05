@@ -1,4 +1,4 @@
-name: Automated API tests using Postman CLI
+name: Automated API tests using Postman CLI multi
 
 on:
   push:
@@ -18,7 +18,14 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install Postman CLI
         run: |
-          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+          if [[ "${{ runner.os }}" == "Windows" ]]; then
+            iwr "https://dl-cli.pstmn.io/install/win64.sh" -OutFile "install.sh"
+            ./install.sh
+          elif [[ "${{ runner.os }}" == "macOS" ]]; then
+            curl -o- "https://dl-cli.pstmn.io/install/mac64.sh" | sh
+          else
+            curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+          fi
       - name: Login to Postman CLI
         run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
       - name: Run API tests
