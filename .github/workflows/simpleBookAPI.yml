@@ -2,7 +2,7 @@ name: Automated API tests using Postman CLI
 
 on: push
 
-  env:
+env:
   BASED_URI: https://simple-books-api.glitch.me
 
 jobs:
