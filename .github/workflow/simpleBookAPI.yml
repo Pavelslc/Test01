@@ -1,0 +1,20 @@
+name: Automated API tests using Postman CLI
+
+on: push
+
+  env:
+  BASED_URI: https://simple-books-api.glitch.me
+
+jobs:
+  automated-api-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Postman CLI
+        run: |
+          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+      - name: Login to Postman CLI
+        run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
+      - name: Run API tests
+        run: |
+          postman collection run "31080467-cda62753-cdd8-4bf8-911d-1bbf60e3bc41" -e "31080467-620f9418-ad96-47c6-b7fc-6ad83f35c305"
