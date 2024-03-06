@@ -1,8 +1,8 @@
-name: Automated API tests using Postman CLI
+name: Automated API tests using Postman CLI simpleBookAPI
 
 on: push
 
-env:
+env: 
   BASED_URI: 'https://simple-books-api.glitch.me'
   POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
   POSTMAM_COLLECTION_UID: '31080467-bb16c346-603e-41b3-8729-f23af7d0cdf2'
@@ -10,7 +10,7 @@ env:
 
 jobs:
   automated-api-tests:
-    runs-on: ${{ matrix.os}}
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
@@ -23,7 +23,7 @@ jobs:
       - name: Install Newman
         run: |
           npm install -g newman
-      - name: Install newman reporter
+      - name: Install Newman reporter
         run: |
           npm install -g newman-reporter-html
       - name: Fetch Postman collection
@@ -31,9 +31,9 @@ jobs:
           curl -X GET "https://api.getpostman.com/collections/${POSTMAN_COLLECTION_UID}" \
             -H "X-Api-Key: ${POSTMAN_API_KEY}" > collection.json
         shell: bash
-      - name: Fetch postman environment
+      - name: Fetch Postman environment
         run: |
-          curl -X GET "https://api.getpostman.com/collections/${POSTMAM_ENVIRONMENT_UID}" \
+          curl -X GET "https://api.getpostman.com/environments/${POSTMAN_ENVIRONMENT_UID}" \
             -H "X-Api-Key: ${POSTMAN_API_KEY}" > environment.json
         shell: bash
       - name: Run API tests
