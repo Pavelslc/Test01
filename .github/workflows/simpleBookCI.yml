@@ -5,8 +5,8 @@ on: push
 env: 
   BASED_URI: 'https://simple-books-api.glitch.me'
   POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
-  POSTMAM_COLLECTION_UID: '31080467-bb16c346-603e-41b3-8729-f23af7d0cdf2'
-  POSTMAM_ENVIRONMENT_UID: '31080467-47a22cc7-57ce-448b-b27b-d5928a4b4013'
+  POSTMAM_COLLECTION_UID: '31080467-cda62753-cdd8-4bf8-911d-1bbf60e3bc41'
+  POSTMAM_ENVIRONMENT_UID: '31080467-620f9418-ad96-47c6-b7fc-6ad83f35c305'
 
 jobs:
   automated-api-tests:
