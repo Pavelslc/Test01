@@ -1,12 +1,12 @@
-name: Automated API tests using Postman CLI simpleBookAPI
+name: Automated API tests using Postman CLI GoRestAPI
 
 on: push
 
 env: 
-  BASE_URI: 'https://simple-books-api.glitch.me'
+  BASE_URI: 'https://gorest.co.in/public/v2'
   POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
-  POSTMAN_COLLECTION_UID: '31080467-cda62753-cdd8-4bf8-911d-1bbf60e3bc41'
-  POSTMAN_ENVIRONMENT_UID: '31080467-620f9418-ad96-47c6-b7fc-6ad83f35c305'
+  POSTMAN_COLLECTION_UID: '31080467-a378e335-9a67-451e-9baa-5feeb4e0843d'
+  POSTMAN_ENVIRONMENT_UID: '31080467-cf65ff11-d9fa-4c6a-9c18-fa59c8aca002'
 
 jobs:
   automated-api-tests:
