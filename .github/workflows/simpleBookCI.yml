@@ -1,9 +1,6 @@
 name: Automated API tests using Postman CLI
 
-on:
-  push:
-    branches:
-      - main
+on: push
 
 env:
   BASE_URI: https://simple-books-api.glitch.me
