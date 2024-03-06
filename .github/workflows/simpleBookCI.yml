@@ -3,7 +3,7 @@ name: Automated API tests using Postman CLI simpleBookAPI
 on: push
 
 env: 
-  BASED_URI: 'https://simple-books-api.glitch.me'
+  BASE_URI: 'https://simple-books-api.glitch.me'
   POSTMAN_API_KEY: ${{ secrets.POSTMAN_API_KEY }}
   POSTMAM_COLLECTION_UID: '31080467-cda62753-cdd8-4bf8-911d-1bbf60e3bc41'
   POSTMAM_ENVIRONMENT_UID: '31080467-620f9418-ad96-47c6-b7fc-6ad83f35c305'
